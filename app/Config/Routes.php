@@ -15,4 +15,5 @@ $routes->group('admin', ['filter' => 'session'], function ($routes) {
     $routes->resource('roles', ['controller' => 'Admin\RoleController']);
     $routes->resource('permissions', ['controller' => 'Admin\PermissionController']);
     $routes->resource('menus', ['controller' => 'Admin\MenuController']);
+    $routes->resource('modules', ['controller' => 'Admin\ModuleController']);
 });
