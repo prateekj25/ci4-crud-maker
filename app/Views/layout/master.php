@@ -60,14 +60,54 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+                        <!-- Dashboard -->
                         <li class="nav-item">
-                            <a href="<?= site_url('dashboard') ?>" class="nav-link">
+                            <a href="<?= site_url('admin/dashboard') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>Dashboard</p>
                             </a>
                         </li>
 
-                        <!-- Modules/Menus will be dynamic later -->
+                        <!-- Dynamic Menu -->
+                        <?= view_cell('App\Cells\SidebarMenu::render') ?>
+
+                        <!-- System Management Header -->
+                        <li class="nav-header">SYSTEM</li>
+
+                        <li class="nav-item">
+                            <a href="<?= site_url('admin/users') ?>" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>Users</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?= site_url('admin/roles') ?>" class="nav-link">
+                                <i class="nav-icon fas fa-user-shield"></i>
+                                <p>Roles</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?= site_url('admin/permissions') ?>" class="nav-link">
+                                <i class="nav-icon fas fa-key"></i>
+                                <p>Permissions</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?= site_url('admin/menus') ?>" class="nav-link">
+                                <i class="nav-icon fas fa-bars"></i>
+                                <p>Menus</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?= site_url('admin/modules') ?>" class="nav-link">
+                                <i class="nav-icon fas fa-cubes"></i>
+                                <p>Modules</p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

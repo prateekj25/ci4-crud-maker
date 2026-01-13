@@ -16,4 +16,7 @@ $routes->group('admin', ['filter' => 'session'], function ($routes) {
     $routes->resource('permissions', ['controller' => 'Admin\PermissionController']);
     $routes->resource('menus', ['controller' => 'Admin\MenuController']);
     $routes->resource('modules', ['controller' => 'Admin\ModuleController']);
+    $routes->resource('users', ['controller' => 'Admin\UserController']);
+    $routes->get('profile', 'Admin\ProfileController::index');
+    $routes->post('profile', 'Admin\ProfileController::update');
 });
