@@ -3,6 +3,7 @@
 namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
+use CodeIgniter\CLI\CLI;
 use CodeIgniter\Shield\Entities\User;
 use CodeIgniter\Shield\Models\UserModel;
 use App\Models\RoleModel;
@@ -93,7 +94,7 @@ class RBACSeeder extends Seeder
 
 
         // 4. Create Super Admin User
-        $userModel = new UserModel();
+        $userModel = new \App\Models\UserModel();
         $email = 'admin@admin.com';
         $user = $userModel->findByEmail($email);
 
@@ -104,15 +105,18 @@ class RBACSeeder extends Seeder
                 'password' => 'password123',
                 'active' => 1
             ]);
+
+            // Shield's magic save that handles identity
             $userModel->save($user);
             $userId = $userModel->getInsertID();
 
-            // Activate the user manually if simple save doesn't (Shield should handle active=1)
-            // But sometimes EmailActivation identity is needed. 
-            // For simplicity, we assume default config or manual activation via DB if needed.
-            // Let's ensure identities are created properly by Shield's User Entity.
+            // Force activation if Shield config requires it
+            $db->table('users')->where('id', $userId)->update(['active' => 1]);
+
+            CLI::write("Super Admin Created: {$email}", 'green');
         } else {
             $userId = $user->id;
+            CLI::write("Super Admin Exists: {$email}", 'yellow');
         }
 
         // 5. Assign Role to User

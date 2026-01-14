@@ -3,7 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
-use CodeIgniter\Shield\Models\UserModel;
+use App\Models\UserModel;
 use CodeIgniter\API\ResponseTrait;
 use App\Models\RoleModel;
 use App\Models\UserRoleModel;

@@ -22,6 +22,6 @@ class SidebarMenu
                 ->findAll();
         }
 
-        return view('App\Cells\sidebar_menu', ['menus' => $menus]);
+        return view('cells/sidebar_menu', ['menus' => $menus]);
     }
 }
