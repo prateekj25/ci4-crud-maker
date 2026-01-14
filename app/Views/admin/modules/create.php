@@ -67,8 +67,8 @@ Create New Module
                     <tr>
                         <td><input type="text" class="form-control" name="fields[name][]" placeholder="id" value="id"
                                 readonly></td>
-                        <td><input type="text" class="form-control" value="INT" readonly></td>
-                        <td><input type="text" class="form-control" value="11" readonly></td>
+                        <td><input type="text" class="form-control" name="fields[type][]" value="INT" readonly></td>
+                        <td><input type="text" class="form-control" name="fields[length][]" value="11" readonly></td>
                         <td>-</td>
                         <td>-</td>
                     </tr>
